@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/14 19:29:39 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:33:22 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct s_stack {
 	int	min_b;
 	int	*moves;
 	int *tmp_moves;
+	int	index_maxb;
+	int index_minb;
 }				t_stack;
 
 /* swap function */
@@ -82,7 +84,7 @@ void		ft_check_doubles(t_stack *stack);
 int			ft_sorting(t_stack *stack);
 int			ft_first(t_stack *stack);
 int			ft_find_index_s_b(t_stack *stack, int top_b);
-void		ft_find_max_moves(t_stack *stack, int i, int tmp_b,
+t_topush	ft_find_max_moves(t_stack *stack, int i, int tmp_b,
 				t_topush topush);
 int			ft_next_topb(t_stack *stack, int i);
 t_topush	ft_count_moves(t_stack *stack);

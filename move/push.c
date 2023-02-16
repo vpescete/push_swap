@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:08:54 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/14 17:48:11 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:42:06 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	pa(t_stack *stack)
 	}
 	stack->current_b--;
 	ft_check_maxmin(stack);
+	// printf("\n\n\t\tindex_max_b: %d\n\n", stack->index_maxb);
 	return (push_a);
 }
 
@@ -57,5 +58,6 @@ int	pb(t_stack *stack)
 	}
 	stack->current_a--;
 	ft_check_maxmin(stack);
+	// printf("\n\n\t\tindex_max_b: %d\n\n", stack->index_maxb);
 	return (push_b);
 }

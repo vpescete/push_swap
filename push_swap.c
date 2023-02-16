@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:58:11 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/14 19:25:46 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:56:34 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 	// 	i++;
 	// }
 	// printf("moves: %d\n", len);
-	pb(stack);
+	// pb(stack);
 	// pb(stack);
 	// pb(stack);
 	// pb(stack);
