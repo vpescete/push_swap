@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:58:11 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/16 23:52:45 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:49:51 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	t_stack *stack;
+	t_stack 	*stack;
 	t_topush	topush;
-	int i = 0;
+	int i;
 	int	len;
+	int j;
+	int i_topa;
 	
 	len = 0;
 	if (ac == 1)
@@ -34,18 +36,20 @@ int	main(int ac, char **av)
 	}
 	ft_check_doubles(stack);
 	len += ft_sorting(stack);
-	pb(stack);
-	pb(stack);
-	// printf("max_b: %d -- min_b: %d\n", stack->max_b, stack->min_b);
-	// while (i < stack->current_b)
-	// {
-	// 	printf(" main stack_b[%i]: %d\n", i, stack->stack_b[i]);
-	// 	i++;
-	// }
-	topush = ft_count_moves(stack);
-	
-	printf(" count_moves: %i\n index_a: %i\n index_b: %i\n", topush.count_moves, topush.index_a, topush.index_b);
-
-	printf("						count_moves: %d\n", topush.count_moves);
+	while (++i < stack->current_b)
+	j = stack->current_a;
+	i = -1;
+	while (++i < j - 3)
+	{
+		topush = ft_count_moves(stack);
+		ft_realsort(stack, topush);
+	}
+	ft_find_maxmin_a(stack);
+	ft_sorting_a(stack);
+	i = stack->current_b;
+	j = -1;
+	while (++j < i)
+		ft_pushing_to_a(stack);
+	final_sorting(stack);
 	ft_close(stack);
 }

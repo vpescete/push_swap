@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:08:54 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/16 18:42:06 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:48:32 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	pa(t_stack *stack)
 {
+	printf("pa\n");
 	int	i;
+	int	j;
 	
+	j = 0;
 	i = stack->current_a;
 	while (i > 0)
 	{
-		stack->stack_a[i + 1] = stack->stack_a[i];
+		stack->stack_a[i] = stack->stack_a[i - 1];
 		i--;
 	}
 	stack->current_a++;
@@ -31,13 +34,12 @@ int	pa(t_stack *stack)
 		i++;
 	}
 	stack->current_b--;
-	ft_check_maxmin(stack);
-	// printf("\n\n\t\tindex_max_b: %d\n\n", stack->index_maxb);
 	return (push_a);
 }
 
 int	pb(t_stack *stack)
 {
+	printf("pb\n");
 	int	i;
 	int	j;
 	
@@ -58,6 +60,5 @@ int	pb(t_stack *stack)
 	}
 	stack->current_a--;
 	ft_check_maxmin(stack);
-	// printf("\n\n\t\tindex_max_b: %d\n\n", stack->index_maxb);
 	return (push_b);
 }

@@ -2,7 +2,7 @@ NAME = push_swap
 
 SRC = move/push.c move/reverse.c move/rotate.c move/swap.c \
 		check_input/ft_check_input.c \
-		sorting/ft_sorting.c sorting/ft_count_move_to_b.c sorting/ft_check_maxmin.c\
+		sorting/ft_sorting.c sorting/ft_count_move_to_b.c sorting/ft_check_maxmin.c sorting/ft_pushing_to_b.c sorting/ft_sorting_a.c\
 		push_swap.c ft_close.c
 
 OBJ = $(SRC.c=.o)

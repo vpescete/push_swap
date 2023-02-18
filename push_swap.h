@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/16 18:33:22 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/18 17:59:00 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct s_stack {
 	int	min_b;
 	int	*moves;
 	int *tmp_moves;
+	int	index_maxa;
+	int	index_mina;
 	int	index_maxb;
 	int index_minb;
 }				t_stack;
@@ -80,7 +82,7 @@ t_stack		*ft_check_av(char **av, int ac, t_stack *stack);
 void		ft_fill_stack_2(char **av, int ac, t_stack *stack);
 void		ft_check_doubles(t_stack *stack);
 
-/* sorting function */
+/* sorting function to push into stack B */
 int			ft_sorting(t_stack *stack);
 int			ft_first(t_stack *stack);
 int			ft_find_index_s_b(t_stack *stack, int top_b);
@@ -88,9 +90,17 @@ t_topush	ft_find_max_moves(t_stack *stack, int i, int tmp_b,
 				t_topush topush);
 int			ft_next_topb(t_stack *stack, int i);
 t_topush	ft_count_moves(t_stack *stack);
+void		ft_realsort(t_stack	*stack, t_topush topush);
+
+/* sorting funciton to push into stack A */
+void		ft_sorting_a(t_stack *stack);
+int			ft_find_next_top_A(t_stack *stack);
+void		ft_pushing_to_a(t_stack *stack);
+void		final_sorting(t_stack *stack);
 
 /* checking stacks */
 void		ft_check_maxmin(t_stack *stack);
+void		ft_find_maxmin_a(t_stack *stack);
 
 
 void		ft_close(t_stack *stack);

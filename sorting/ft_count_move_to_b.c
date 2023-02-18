@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:14:18 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/17 00:56:23 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:50:53 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,9 @@ t_topush	ft_count_moves(t_stack *stack)
 	{
 		top_b = ft_next_topb(stack, i);
 		tmp_b = ft_find_index_s_b(stack, top_b);
-		// printf("top_b: %d -- tmp_b: %d\n", top_b, tmp_b);
 		topush = ft_find_max_moves(stack, i, tmp_b, topush);
-		// printf("!!!!! count_moves %d\n", topush.count_moves);
 		i++;
 	}
-	// printf(" count_moves: %i\n index_a: %i\n index_b: %i\n", topush.count_moves, topush.index_a, topush.index_b);
 	return (topush);
 }
 
@@ -46,7 +43,6 @@ int	ft_next_topb(t_stack *stack, int i)
 
 	j = -1;
 	tmp = stack->index_maxb;
-	// printf("max di b: %d\nindex_b: %d\n", stack->max_b, stack->index_maxb);
 	if (stack->stack_a[i] > stack->max_b || stack->stack_a[i] < stack->min_b)
 	{
 		return (stack->max_b);
@@ -55,13 +51,11 @@ int	ft_next_topb(t_stack *stack, int i)
 	{
 		while (++j < stack->current_b - 1)
 		{
-			// printf("nb: %i		stack_b[%i]:%d > stack_a[%i]: %d\n		stack_a[%i]: %d > stack_b[%i]: %d\n\n", j, j, stack->stack_b[j], i, stack->stack_a[i], i, stack->stack_a[i], j + 1, stack->stack_b[j + 1]);
 			if (stack->stack_a[i] < stack->stack_b[j]
 				&& stack->stack_a[i] > stack->stack_b[j + 1])
 			{
 				tmp = j + 1;
 				break;
-				// printf("ciao\n");
 			}
 		}
 		return (stack->stack_b[tmp]);
@@ -75,7 +69,6 @@ int	ft_find_index_s_b(t_stack *stack, int top_b)
 	i = 0;
 	while (i < stack->current_b)
 	{
-		// printf("   stack->stack_b[%i]: %d -- top_b: %d \n", i, stack->stack_b[i], top_b);
 		if (stack->stack_b[i] == top_b)
 			break;
 		i++;
@@ -91,11 +84,11 @@ t_topush	ft_find_max_moves(t_stack *stack, int i, int tmp_b, t_topush topush)
 	cur_a = 0;
 	cur_b = 0;
 	
-	if ((stack->current_a / 2) % 10 != 0)
+	if ((stack->current_a % 2) != 0)
 		cur_a = stack->current_a / 2 + 1;
 	else
 		cur_a = stack->current_a / 2;
-	if ((stack->current_b / 2) % 10 != 0)
+	if ((stack->current_b % 2) != 0)
 		cur_b = stack->current_b / 2 + 1;
 	else
 		cur_b = stack->current_b / 2;
