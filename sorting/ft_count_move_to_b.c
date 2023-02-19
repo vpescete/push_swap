@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:14:18 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:00:46 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:49:03 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_next_topb(t_stack *stack, int i)
 	int	tmp;
 
 	j = -1;
-	tmp = stack->index_maxb;
+	tmp = 0;
 	if (stack->stack_a[i] > stack->max_b || stack->stack_a[i] < stack->min_b)
 	{
 		return (stack->max_b);

@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 19:49:12 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:15:51 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:58:14 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_timetopush_over_b(t_stack	*stack, t_topush topush, int i)
 	{
 		while (++i < (stack->current_b - topush.index_b))
 			rrr(stack);
+		ft_printf("current_A: %d -- index_A: %d\n", stack->current_a, topush.index_a);
 		i = -1;
 		while (++i < (stack->current_a - topush.index_a)
 			- (stack->current_b - topush.index_b))

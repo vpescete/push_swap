@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 13:00:17 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:02:24 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:07:19 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_topush	ft_index_over(t_stack *stack, int i, int tmp_b, t_topush topush)
 {
-	if (tmp_b >= i)
+	if (stack->current_b - tmp_b < stack->current_a - i)
 		topush.tmp_moves = stack->current_a - i;
 	else
 		topush.tmp_moves = stack->current_b - tmp_b;
