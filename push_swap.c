@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:58:11 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/18 18:49:51 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:25:25 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	t_stack 	*stack;
+	t_stack		*stack;
 	t_topush	topush;
-	int i;
-	int	len;
-	int j;
-	int i_topa;
-	
+	int			i;
+	int			len;
+	int			j;
+
 	len = 0;
-	if (ac == 1)
-		exit(0);
-	if (ac == 2)
-	{
-		stack = ft_check_stack(av[1], stack);		
-		ft_fill_stack(av[1], stack);
-	}
-	else
-	{
-		stack = ft_check_av(av, ac, stack);
-		ft_fill_stack_2(av, ac, stack);
-	}
-	ft_check_doubles(stack);
+	stack = ft_init(av, ac, stack);
 	len += ft_sorting(stack);
-	while (++i < stack->current_b)
 	j = stack->current_a;
 	i = -1;
 	while (++i < j - 3)

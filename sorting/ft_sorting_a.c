@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:13:49 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/18 18:51:28 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:38:13 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,10 @@ void	ft_pushing_to_a(t_stack *stack)
 	int	cur_b;
 	int	i_topa;
 	int	i;
-	
 
 	cur_a = 0;
 	cur_b = 0;
-	i_topa = 0; 
+	i_topa = 0;
 	i = -1;
 	if ((stack->current_a % 2) != 0)
 		cur_a = stack->current_a / 2 + 1;
@@ -87,7 +86,7 @@ void	ft_pushing_to_a(t_stack *stack)
 					ft_find_maxmin_a(stack);
 				}
 			}
-			else 
+			else
 			{
 				while (stack->index_mina != 0)
 				{
@@ -98,7 +97,7 @@ void	ft_pushing_to_a(t_stack *stack)
 		}
 		else
 		{
-			i_topa = ft_find_next_top_A(stack);
+			i_topa = ft_find_next_top_a(stack);
 			if (i_topa >= cur_a)
 			{
 				while (stack->current_a - i_topa > ++i)
@@ -139,7 +138,7 @@ void	ft_pushing_to_a(t_stack *stack)
 		}
 		else if (stack->stack_b[0] < stack->stack_a[stack->index_maxa])
 		{
-			i_topa = ft_find_next_top_A(stack);
+			i_topa = ft_find_next_top_a(stack);
 			if (i_topa >= cur_a)
 			{
 				while (++i < stack->current_a - i_topa)
@@ -161,7 +160,7 @@ void	ft_pushing_to_a(t_stack *stack)
 	pa(stack);
 }
 
-int	ft_find_next_top_A(t_stack *stack)
+int	ft_find_next_top_a(t_stack *stack)
 {
 	int	i;
 
@@ -170,7 +169,7 @@ int	ft_find_next_top_A(t_stack *stack)
 	{
 		if (stack->stack_b[0] > stack->stack_a[i]
 			&& stack->stack_b[0] < stack->stack_a[i + 1])
-			return(i + 1);
+			return (i + 1);
 		i++;
 	}
 	return (0);
@@ -181,7 +180,7 @@ void	final_sorting(t_stack *stack)
 	int	cur_a;
 	int	cur_b;
 	int	i;
-	
+
 	cur_a = 0;
 	cur_b = 0;
 	i = -1;

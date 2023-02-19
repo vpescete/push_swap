@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:43 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/18 18:11:38 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 12:46:11 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	ra(t_stack *stack)
 {
-	printf("ra\n");
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	tmp = stack->stack_a[0];
 	i = 0;
@@ -27,14 +26,14 @@ int	ra(t_stack *stack)
 	}
 	stack->stack_a[i] = tmp;
 	ft_check_maxmin(stack);
+	ft_printf("ra\n");
 	return (rotate_a);
 }
 
 int	rb(t_stack *stack)
 {
-	printf("rb\n");
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	tmp = stack->stack_b[0];
 	i = 0;
@@ -45,14 +44,14 @@ int	rb(t_stack *stack)
 	}
 	stack->stack_b[i] = tmp;
 	ft_check_maxmin(stack);
+	ft_printf("rb\n");
 	return (rotate_b);
 }
 
-int rr(t_stack *stack)
+int	rr(t_stack *stack)
 {
-	printf("rr\n");
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	tmp = stack->stack_a[0];
 	i = 0;
@@ -71,5 +70,6 @@ int rr(t_stack *stack)
 	}
 	stack->stack_b[i] = tmp;
 	ft_check_maxmin(stack);
+	ft_printf("rr\n");
 	return (rotate_ab);
 }

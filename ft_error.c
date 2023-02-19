@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_maxmin.c                                  :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 17:42:20 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 12:47:22 by vpescete         ###   ########.fr       */
+/*   Created: 2023/02/19 13:26:36 by vpescete          #+#    #+#             */
+/*   Updated: 2023/02/19 13:35:07 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	ft_check_maxmin(t_stack *stack)
+void	ft_error_prev(t_stack	*stack)
 {
-	int	i;
+	ft_printf("Error\n");
+	free(stack);
+	exit(0);
+}
 
-	i = 0;
-	while (i < stack->current_b)
-	{
-		if (stack->stack_b[i] >= stack->max_b)
-		{
-			stack->max_b = stack->stack_b[i];
-			stack->index_maxb = i;
-		}
-		else if (stack->stack_b[i] < stack->min_b)
-		{
-			stack->min_b = stack->stack_b[i];
-			stack->index_minb = i;
-		}
-		i++;
-	}
+void	ft_error(t_stack	*stack)
+{
+	ft_printf("Error\n");
+	free(stack->stack_a);
+	free(stack->stack_b);
+	free(stack);
+	exit(0);
 }

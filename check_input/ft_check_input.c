@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:43:10 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/13 17:29:07 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:33:47 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*ft_check_stack(char *s, t_stack *stack)
 	while (s[i])
 	{
 		if (!((s[i] >= '0' && s[i] <= '9') || s[i] == 32 || s[i] == '-'))
-			exit (0);
+			ft_error_prev(stack);
 		if (s[i] == 32)
 			trigger = 1;
 		if (trigger == 1 && ((s[i] >= '0' && s[i] <= '9') || s[i] == '-'))
@@ -39,9 +39,9 @@ t_stack	*ft_check_stack(char *s, t_stack *stack)
 
 void	ft_fill_stack(char *s, t_stack *stack)
 {
-	int i;
+	int	i;
 	int	trigger;
-	int counter;
+	int	counter;
 
 	i = 0;
 	trigger = 1;
@@ -54,6 +54,8 @@ void	ft_fill_stack(char *s, t_stack *stack)
 			trigger = 1;
 		if (trigger == 1 && ((s[i] >= '0' && s[i] <= '9') || s[i] == '-'))
 		{
+			if (ft_atoi(s + i) == -2147483648)
+				ft_error(stack);
 			stack->stack_a[counter] = ft_atoi(s + i);
 			counter++;
 			trigger = 0;
@@ -65,8 +67,8 @@ void	ft_fill_stack(char *s, t_stack *stack)
 t_stack	*ft_check_av(char **av, int ac, t_stack *stack)
 {
 	int	i;
-	int j;
-	int	trigger; 
+	int	j;
+	int	trigger;
 
 	i = 1;
 	trigger = 1;
@@ -78,7 +80,7 @@ t_stack	*ft_check_av(char **av, int ac, t_stack *stack)
 		while (j < ft_strlen(av[i]))
 		{
 			if (!((av[i][j] >= '0' && av[i][j] <= '9') || av[i][j] == '-'))
-				exit(0);
+				ft_error_prev(stack);
 			if (trigger == 0)
 				j++;
 			else
@@ -97,8 +99,8 @@ t_stack	*ft_check_av(char **av, int ac, t_stack *stack)
 void	ft_fill_stack_2(char **av, int ac, t_stack *stack)
 {
 	int	i;
-	int j;
-	int	trigger; 
+	int	j;
+	int	trigger;
 
 	i = 1;
 	trigger = 1;
@@ -114,6 +116,8 @@ void	ft_fill_stack_2(char **av, int ac, t_stack *stack)
 			else
 			{
 				trigger = 0;
+				if (ft_atoi(av[i]) == -2147483648)
+					ft_error(stack);
 				stack->stack_a[i - 1] = ft_atoi(av[i]);
 				j++;
 			}
@@ -139,10 +143,7 @@ void	ft_check_doubles(t_stack *stack)
 				j++;
 		}
 		if (stack->stack_a[i] == stack->stack_a[j] && j < stack->current_a)
-		{
-			printf("Error\nThere's the same number multiple times\n");
-			exit(0);
-		}
+			ft_error(stack);
 		j = 0;
 		i++;
 	}

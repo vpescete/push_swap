@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:14:18 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/18 18:50:53 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:00:46 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_topush	ft_count_moves(t_stack *stack)
 {
-	int	i;
-	int	index_b;
-	int	top_b = 0;
-	int tmp_b;
+	int			i;
+	int			index_b;
+	int			top_b;
+	int			tmp_b;
 	t_topush	topush;
 
 	topush.index_a = 0;
@@ -26,6 +26,7 @@ t_topush	ft_count_moves(t_stack *stack)
 	tmp_b = 0;
 	i = 0;
 	topush.tmp_moves = 0;
+	top_b = 0;
 	while (i < stack->current_a)
 	{
 		top_b = ft_next_topb(stack, i);
@@ -55,7 +56,7 @@ int	ft_next_topb(t_stack *stack, int i)
 				&& stack->stack_a[i] > stack->stack_b[j + 1])
 			{
 				tmp = j + 1;
-				break;
+				break ;
 			}
 		}
 		return (stack->stack_b[tmp]);
@@ -70,7 +71,7 @@ int	ft_find_index_s_b(t_stack *stack, int top_b)
 	while (i < stack->current_b)
 	{
 		if (stack->stack_b[i] == top_b)
-			break;
+			break ;
 		i++;
 	}
 	return (i);
@@ -81,9 +82,6 @@ t_topush	ft_find_max_moves(t_stack *stack, int i, int tmp_b, t_topush topush)
 	int	cur_a;
 	int	cur_b;
 
-	cur_a = 0;
-	cur_b = 0;
-	
 	if ((stack->current_a % 2) != 0)
 		cur_a = stack->current_a / 2 + 1;
 	else
@@ -93,19 +91,9 @@ t_topush	ft_find_max_moves(t_stack *stack, int i, int tmp_b, t_topush topush)
 	else
 		cur_b = stack->current_b / 2;
 	if (tmp_b >= cur_b && i >= cur_a)
-	{
-		if (tmp_b >= i)
-			topush.tmp_moves = stack->current_a - i;
-		else
-			topush.tmp_moves = stack->current_b - tmp_b;
-	}
+		topush = ft_index_over(stack, i, tmp_b, topush);
 	else if (tmp_b < cur_b && i < cur_a)
-	{
-		if (tmp_b >= i)
-			topush.tmp_moves = tmp_b;
-		else
-			topush.tmp_moves = i;
-	}
+		topush = ft_index_under(stack, i, tmp_b, topush);
 	else
 	{
 		if (tmp_b < cur_b && i >= cur_a)
@@ -114,10 +102,6 @@ t_topush	ft_find_max_moves(t_stack *stack, int i, int tmp_b, t_topush topush)
 			topush.tmp_moves = i + stack->current_b - tmp_b;
 	}
 	if (topush.count_moves > topush.tmp_moves || i == 0)
-	{
-		topush.index_a = i;
-		topush.index_b = tmp_b;
-		topush.count_moves = topush.tmp_moves;
-	}
+		topush = ft_new_cheapest(i, tmp_b, topush);
 	return (topush);
 }
