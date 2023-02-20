@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:13:49 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 10:51:41 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:26:30 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,30 +78,7 @@ void	ft_pushing_to_a(t_stack *stack)
 	if (stack->stack_b[0] > stack->stack_a[0])
 	{
 		if (stack->stack_b[0] > stack->stack_a[stack->index_maxa])
-		{
-			// ft_stb_maj_sta_1(stack, c.cur_a);
-			if (stack->index_maxa == stack->current_a - 1)
-			{
-				pa(stack);
-				return ;
-			}
-			else if (stack->index_maxa >= c.cur_a)
-			{
-				while (stack->current_a - stack->index_maxa - 1 != 0)
-				{
-					rra(stack);
-					ft_find_maxmin_a(stack);
-				}
-			}
-			else
-			{
-				while (stack->index_maxa != stack->current_a - 1)
-				{
-					ra(stack);
-					ft_find_maxmin_a(stack);
-				}
-			}
-		}
+			ft_stb_maj_sta_1(stack, c.cur_a);
 		else if (stack->stack_b[0] < stack->stack_a[stack->index_maxa])
 			ft_stb_maj_sta_2(stack, c.cur_a, i_topa, i);
 	}

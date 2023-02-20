@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 09:31:28 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 10:46:31 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:25:46 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ void	ft_sta_maj_stb_2(t_stack *stack, int cur_a, int i_topa, int i)
 void	ft_stb_maj_sta_1(t_stack *stack, int cur_a)
 {
 	if (stack->index_maxa == stack->current_a - 1)
-	{
-		pa(stack);
 		return ;
-	}
 	else if (stack->index_maxa >= cur_a)
 	{
 		while (stack->current_a - stack->index_maxa - 1 != 0)
