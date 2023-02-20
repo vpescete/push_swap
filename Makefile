@@ -3,16 +3,23 @@ NAME_B = checker
 
 SRC_1 = push_swap.c
 
-SRC_2 = move/push.c move/reverse.c move/rotate.c move/swap.c \
-		input_check/ft_check_input.c input_check/ft_check_sort.c\
-		sorting/ft_sorting.c sorting/ft_count_move_to_b.c sorting/ft_check_maxmin.c\
-		sorting/ft_pushing_to_b.c sorting/ft_sorting_a.c sorting/ft_check_to_b.c \
-		sorting/ft_check_pusha.c\
-		ft_close.c ft_error.c
+SRC_2 = include/push_swap/move/push.c include/push_swap/move/reverse.c \
+		include/push_swap/move/rotate.c include/push_swap/move/swap.c \
+		include/push_swap/input_check/ft_check_input.c \
+		include/push_swap/input_check/ft_check_sort.c\
+		include/push_swap/sorting/ft_sorting.c \
+		include/push_swap/sorting/ft_count_move_to_b.c\
+		include/push_swap/sorting/ft_check_maxmin.c\
+		include/push_swap/sorting/ft_pushing_to_b.c\
+		include/push_swap/sorting/ft_sorting_a.c \
+		include/push_swap/sorting/ft_check_to_b.c \
+		include/push_swap/sorting/ft_check_pusha.c\
+		include/push_swap/close_error/ft_close.c\
+		include/push_swap/close_error/ft_error.c\
 
-BONUS = bonus/checker.c \
-		get_next_line/get_next_line.c \
-		get_next_line/get_next_line_utils.c \
+BONUS = include/bonus/checker.c \
+		libs/get_next_line/get_next_line.c \
+		libs/get_next_line/get_next_line_utils.c \
 
 OBJ_1 = $(SRC_1.c=.o)
 OBJ_1 = $(SRC_2.c=.o)
@@ -22,9 +29,9 @@ BOBJ = $(BONUS.c=.o)
 CC = gcc
 FLAG = -Wall -Werror -Wextra
 
-FTPRINTF = ft_printf/
-LIBFT := libft/
-LIBRARY := libft/libft.a ft_printf/libftprintf.a
+FTPRINTF = libs/ft_printf/
+LIBFT := libs/libft/
+LIBRARY := libs/libft/libft.a libs/ft_printf/libftprintf.a
 
 all :
 		make -C $(FTPRINTF)

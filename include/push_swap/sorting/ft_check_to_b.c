@@ -6,11 +6,11 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 13:00:17 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 16:07:19 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:42:58 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../../push_swap.h"
 
 t_topush	ft_index_over(t_stack *stack, int i, int tmp_b, t_topush topush)
 {

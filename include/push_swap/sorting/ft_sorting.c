@@ -6,11 +6,11 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:23:18 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 18:00:38 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:42:58 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../../push_swap.h"
 
 int	ft_sorting(t_stack *stack)
 {

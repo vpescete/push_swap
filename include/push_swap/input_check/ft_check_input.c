@@ -6,11 +6,11 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:43:10 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 12:45:08 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:42:40 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../../push_swap.h"
 
 t_stack	*ft_check_stack(char *s, t_stack *stack, t_check c)
 {
@@ -49,6 +49,8 @@ void	ft_fill_stack(char *s, t_stack *stack, t_check c)
 				|| s[c.i] == '-'))
 		{
 			if (ft_atoi(s + c.i) == -2147483648)
+				ft_error(stack);
+			if (ft_atoi(s + c.i) == 2147483647)
 				ft_error(stack);
 			stack->stack_a[counter] = ft_atoi(s + c.i);
 			counter++;
@@ -102,6 +104,8 @@ void	ft_fill_stack_2(char **av, t_stack *stack, t_check c)
 			{
 				c.trigger = 0;
 				if (ft_atoi(av[c.i]) == -2147483648)
+					ft_error(stack);
+				if (ft_atoi(av[c.i]) == 2147483647)
 					ft_error(stack);
 				stack->stack_a[c.i - 1] = ft_atoi(av[c.i]);
 				c.j++;

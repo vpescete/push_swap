@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 18:14:39 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:34:16 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "libs/libft/libft.h"
+# include "libs/ft_printf/ft_printf.h"
 
 enum e_MOVES {
 	swap_a = 0,

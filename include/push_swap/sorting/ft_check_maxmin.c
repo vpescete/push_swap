@@ -6,11 +6,11 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:42:20 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 12:47:22 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:42:58 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../../push_swap.h"
 
 void	ft_check_maxmin(t_stack *stack)
 {

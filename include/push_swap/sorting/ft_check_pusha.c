@@ -6,11 +6,11 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 09:31:28 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 17:58:21 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:42:58 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../../push_swap.h"
 
 t_curr	ft_mid_stacks(t_stack *stack)
 {

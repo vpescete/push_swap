@@ -6,12 +6,12 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:27:31 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 18:16:49 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:43:29 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../get_next_line/get_next_line.h"
+#include "../../push_swap.h"
+#include "../../libs/get_next_line/get_next_line.h"
 
 void	check_move(char *cmd, t_stack *stack)
 {
@@ -57,9 +57,11 @@ int	main(int ac, char **av)
 {
 	t_stack		*stack;
 	char		*cmd;
+	int			final;
 
 	stack = ft_init(av, ac, stack, 0);
 	stack->current_b = 0;
+	final = stack->current_a;
 	cmd = get_next_line(0);
 	while (cmd)
 	{
@@ -68,9 +70,9 @@ int	main(int ac, char **av)
 		cmd = get_next_line(0);
 	}
 	free(cmd);
-	if (!ft_check_sort(stack))
+	if (!ft_check_sort(stack) || stack->current_a != final)
 		ft_printf("KO\n");
 	else
 		ft_printf("OK\n");
-	return (0);
+	ft_close(stack);
 }
