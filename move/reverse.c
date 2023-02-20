@@ -6,13 +6,13 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:50:15 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 12:45:05 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:55:54 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	rra(t_stack *stack)
+int	rra(t_stack *stack, int p)
 {
 	int	i;
 	int	tmp;
@@ -26,11 +26,12 @@ int	rra(t_stack *stack)
 	}
 	stack->stack_a[0] = tmp;
 	ft_check_maxmin(stack);
-	ft_printf("rra\n");
+	if (p == 1)
+		ft_printf("rra\n");
 	return (reverse_a);
 }
 
-int	rrb(t_stack *stack)
+int	rrb(t_stack *stack, int p)
 {
 	int	i;
 	int	tmp;
@@ -44,11 +45,12 @@ int	rrb(t_stack *stack)
 	}
 	stack->stack_b[0] = tmp;
 	ft_check_maxmin(stack);
-	ft_printf("rrb\n");
+	if (p == 1)
+		ft_printf("rrb\n");
 	return (reverse_b);
 }
 
-int	rrr(t_stack *stack)
+int	rrr(t_stack *stack, int p)
 {
 	int	i;
 	int	tmp;
@@ -70,6 +72,7 @@ int	rrr(t_stack *stack)
 	}
 	stack->stack_b[0] = tmp;
 	ft_check_maxmin(stack);
-	ft_printf("rrr\n");
+	if (p == 1)
+		ft_printf("rrr\n");
 	return (reverse_ab);
 }

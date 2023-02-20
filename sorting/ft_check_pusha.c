@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 09:31:28 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 12:25:46 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:58:21 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_sta_maj_stb_1(t_stack *stack, int cur_a)
 	{
 		while (stack->index_mina != 0)
 		{
-			ra(stack);
+			ra(stack, 1);
 			ft_find_maxmin_a(stack);
 		}
 	}
@@ -37,7 +37,7 @@ void	ft_sta_maj_stb_1(t_stack *stack, int cur_a)
 	{
 		while (stack->index_mina != 0)
 		{
-			rra(stack);
+			rra(stack, 1);
 			ft_find_maxmin_a(stack);
 		}
 	}
@@ -49,12 +49,12 @@ void	ft_sta_maj_stb_2(t_stack *stack, int cur_a, int i_topa, int i)
 	if (i_topa >= cur_a)
 	{
 		while (stack->current_a - i_topa > ++i)
-			rra(stack);
+			rra(stack, 1);
 	}
 	else
 	{
 		while (i_topa > ++i)
-			ra(stack);
+			ra(stack, 1);
 	}
 }
 
@@ -66,7 +66,7 @@ void	ft_stb_maj_sta_1(t_stack *stack, int cur_a)
 	{
 		while (stack->current_a - stack->index_maxa - 1 != 0)
 		{
-			rra(stack);
+			rra(stack, 1);
 			ft_find_maxmin_a(stack);
 		}
 	}
@@ -74,7 +74,7 @@ void	ft_stb_maj_sta_1(t_stack *stack, int cur_a)
 	{
 		while (stack->index_maxa != stack->current_a - 1)
 		{
-			ra(stack);
+			ra(stack, 1);
 			ft_find_maxmin_a(stack);
 		}
 	}
@@ -87,7 +87,7 @@ void	ft_stb_maj_sta_2(t_stack *stack, int cur_a, int i_topa, int i)
 	{
 		while (++i < stack->current_a - i_topa)
 		{
-			rra(stack);
+			rra(stack, 1);
 			ft_find_maxmin_a(stack);
 		}
 	}
@@ -95,7 +95,7 @@ void	ft_stb_maj_sta_2(t_stack *stack, int cur_a, int i_topa, int i)
 	{
 		while (++i < i_topa)
 		{
-			ra(stack);
+			ra(stack, 1);
 			ft_find_maxmin_a(stack);
 		}
 	}

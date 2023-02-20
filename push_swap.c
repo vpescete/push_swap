@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:58:11 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:25:25 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:14:18 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	int			j;
 
 	len = 0;
-	stack = ft_init(av, ac, stack);
+	stack = ft_init(av, ac, stack, 1);
 	len += ft_sorting(stack);
 	j = stack->current_a;
 	i = -1;

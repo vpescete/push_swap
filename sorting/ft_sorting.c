@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:23:18 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 10:57:26 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:00:38 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_first(t_stack *stack)
 		stack->min_b = stack->stack_a[0];
 		stack->max_b = stack->stack_a[1];
 	}
-	pb(stack);
-	pb(stack);
+	pb(stack, 1);
+	pb(stack, 1);
 	return (2);
 }

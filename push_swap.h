@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 10:55:26 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:14:39 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,26 @@ typedef struct s_stack {
 }			t_stack;
 
 /* swap function */
-int			sa(t_stack *stack);
-int			sb(t_stack *stack);
-int			ss(t_stack *stack);
+int			sa(t_stack *stack, int p);
+int			sb(t_stack *stack, int p);
+int			ss(t_stack *stack, int p);
 
 /* push function */
-int			pa(t_stack *stack);
-int			pb(t_stack *stack);
+int			pa(t_stack *stack, int p);
+int			pb(t_stack *stack, int p);
 
 /* rotate funciton */
-int			ra(t_stack *stack);
-int			rb(t_stack *stack);
-int			rr(t_stack *stack);
+int			ra(t_stack *stack, int p);
+int			rb(t_stack *stack, int p);
+int			rr(t_stack *stack, int p);
 
 /* reverse rotate funciton */
-int			rra(t_stack *stack);
-int			rrb(t_stack *stack);
-int			rrr(t_stack *stack);
+int			rra(t_stack *stack, int p);
+int			rrb(t_stack *stack, int p);
+int			rrr(t_stack *stack, int p);
 
 /* check and fill stack a */
-t_stack		*ft_init(char **av, int ac, t_stack *stack);
+t_stack		*ft_init(char **av, int ac, t_stack *stack, int k);
 t_stack		*ft_check_stack(char *s, t_stack *stack, t_check c);
 void		ft_fill_stack(char *s, t_stack *stack, t_check c);
 t_stack		*ft_check_av(char **av, t_stack *stack, t_check c);
@@ -128,8 +128,9 @@ void		ft_stb_maj_sta_2(t_stack *stack, int cur_a, int i_topa, int i);
 void		ft_check_maxmin(t_stack *stack);
 void		ft_find_maxmin_a(t_stack *stack);
 
-void		ft_error_prev(t_stack	*stack);
-void		ft_error(t_stack	*stack);
+void		ft_error_prev(t_stack *stack);
+void		ft_error(t_stack *stack);
 void		ft_close(t_stack *stack);
+void		ft_close_init(t_stack *stack);
 
 #endif
