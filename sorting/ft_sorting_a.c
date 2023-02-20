@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:13:49 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:38:13 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:51:41 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,66 +60,32 @@ void	ft_find_maxmin_a(t_stack *stack)
 
 void	ft_pushing_to_a(t_stack *stack)
 {
-	int	cur_a;
-	int	cur_b;
-	int	i_topa;
-	int	i;
+	t_curr	c;
+	int		i_topa;
+	int		i;
 
-	cur_a = 0;
-	cur_b = 0;
 	i_topa = 0;
 	i = -1;
-	if ((stack->current_a % 2) != 0)
-		cur_a = stack->current_a / 2 + 1;
-	else
-		cur_a = stack->current_a / 2;
+	c = ft_mid_stacks(stack);
 	ft_find_maxmin_a(stack);
 	if (stack->stack_b[0] < stack->stack_a[0])
 	{
 		if (stack->stack_b[0] < stack->stack_a[stack->index_mina])
-		{
-			if (stack->index_mina < cur_a)
-			{
-				while (stack->index_mina != 0)
-				{
-					ra(stack);
-					ft_find_maxmin_a(stack);
-				}
-			}
-			else
-			{
-				while (stack->index_mina != 0)
-				{
-					rra(stack);
-					ft_find_maxmin_a(stack);
-				}
-			}
-		}
+			ft_sta_maj_stb_1(stack, c.cur_a);
 		else
-		{
-			i_topa = ft_find_next_top_a(stack);
-			if (i_topa >= cur_a)
-			{
-				while (stack->current_a - i_topa > ++i)
-					rra(stack);
-			}
-			else
-			{
-				while (i_topa > ++i)
-					ra(stack);
-			}
-		}
+			ft_sta_maj_stb_2(stack, c.cur_a, i_topa, i);
 	}
 	if (stack->stack_b[0] > stack->stack_a[0])
 	{
 		if (stack->stack_b[0] > stack->stack_a[stack->index_maxa])
 		{
+			// ft_stb_maj_sta_1(stack, c.cur_a);
 			if (stack->index_maxa == stack->current_a - 1)
 			{
 				pa(stack);
 				return ;
 			}
-			else if (stack->index_maxa >= cur_a)
+			else if (stack->index_maxa >= c.cur_a)
 			{
 				while (stack->current_a - stack->index_maxa - 1 != 0)
 				{
@@ -137,25 +103,7 @@ void	ft_pushing_to_a(t_stack *stack)
 			}
 		}
 		else if (stack->stack_b[0] < stack->stack_a[stack->index_maxa])
-		{
-			i_topa = ft_find_next_top_a(stack);
-			if (i_topa >= cur_a)
-			{
-				while (++i < stack->current_a - i_topa)
-				{
-					rra(stack);
-					ft_find_maxmin_a(stack);
-				}
-			}
-			else
-			{
-				while (++i < i_topa)
-				{
-					ra(stack);
-					ft_find_maxmin_a(stack);
-				}
-			}
-		}
+			ft_stb_maj_sta_2(stack, c.cur_a, i_topa, i);
 	}
 	pa(stack);
 }

@@ -6,124 +6,109 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:43:10 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:33:47 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:23:02 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*ft_check_stack(char *s, t_stack *stack)
+t_stack	*ft_check_stack(char *s, t_stack *stack, t_check c)
 {
-	int	i;
-	int	trigger;
-
-	i = 0;
-	trigger = 1;
 	stack = malloc(sizeof(t_stack));
 	stack->current_a = 0;
-	while (s[i])
+	while (s[c.i])
 	{
-		if (!((s[i] >= '0' && s[i] <= '9') || s[i] == 32 || s[i] == '-'))
+		if (!((s[c.i] >= '0' && s[c.i] <= '9') || s[c.i] == 32
+				|| s[c.i] == '-'))
 			ft_error_prev(stack);
-		if (s[i] == 32)
-			trigger = 1;
-		if (trigger == 1 && ((s[i] >= '0' && s[i] <= '9') || s[i] == '-'))
+		if (s[c.i] == 32)
+			c.trigger = 1;
+		if (c.trigger == 1 && ((s[c.i] >= '0' && s[c.i] <= '9')
+				|| s[c.i] == '-'))
 		{
 			stack->current_a++;
-			trigger = 0;
+			c.trigger = 0;
 		}
-		i++;
+		c.i++;
 	}
 	return (stack);
 }
 
-void	ft_fill_stack(char *s, t_stack *stack)
+void	ft_fill_stack(char *s, t_stack *stack, t_check c)
 {
-	int	i;
-	int	trigger;
 	int	counter;
 
-	i = 0;
-	trigger = 1;
 	counter = 0;
 	stack->stack_a = (int *)malloc(stack->current_a * sizeof(int));
 	stack->stack_b = malloc(stack->current_a * sizeof(int));
-	while (s[i])
+	while (s[c.i])
 	{
-		if (s[i] == 32)
-			trigger = 1;
-		if (trigger == 1 && ((s[i] >= '0' && s[i] <= '9') || s[i] == '-'))
+		if (s[c.i] == 32)
+			c.trigger = 1;
+		if (c.trigger == 1 && ((s[c.i] >= '0' && s[c.i] <= '9')
+				|| s[c.i] == '-'))
 		{
-			if (ft_atoi(s + i) == -2147483648)
+			if (ft_atoi(s + c.i) == -2147483648)
 				ft_error(stack);
-			stack->stack_a[counter] = ft_atoi(s + i);
+			stack->stack_a[counter] = ft_atoi(s + c.i);
 			counter++;
-			trigger = 0;
+			c.trigger = 0;
 		}
-		i++;
+		c.i++;
 	}
 }
 
-t_stack	*ft_check_av(char **av, int ac, t_stack *stack)
+t_stack	*ft_check_av(char **av, t_stack *stack, t_check c)
 {
-	int	i;
-	int	j;
-	int	trigger;
-
-	i = 1;
-	trigger = 1;
+	c.i = 1;
 	stack = malloc(sizeof(t_stack));
 	stack->current_a = 0;
-	while (i < ac)
+	while (c.i < c.ac)
 	{
-		j = 0;
-		while (j < ft_strlen(av[i]))
+		c.j = 0;
+		while (c.j < ft_strlen(av[c.i]))
 		{
-			if (!((av[i][j] >= '0' && av[i][j] <= '9') || av[i][j] == '-'))
+			if (!((av[c.i][c.j] >= '0' && av[c.i][c.j] <= '9')
+				|| av[c.i][c.j] == '-'))
 				ft_error_prev(stack);
-			if (trigger == 0)
-				j++;
+			if (c.trigger == 0)
+				c.j++;
 			else
 			{
-				trigger = 0;
+				c.trigger = 0;
 				stack->current_a++;
-				j++;
+				c.j++;
 			}	
 		}
-		trigger = 1;
-		i++;
+		c.trigger = 1;
+		c.i++;
 	}
 	return (stack);
 }
 
-void	ft_fill_stack_2(char **av, int ac, t_stack *stack)
+void	ft_fill_stack_2(char **av, t_stack *stack, t_check c)
 {
-	int	i;
-	int	j;
-	int	trigger;
-
-	i = 1;
-	trigger = 1;
+	c.i = 1;
 	stack->stack_a = malloc(stack->current_a * sizeof(int));
 	stack->stack_b = malloc(stack->current_a * sizeof(int));
-	while (i < ac)
+	while (c.i < c.ac)
 	{
-		j = 0;
-		while (j < ft_strlen(av[i]))
+		c.j = 0;
+		while (c.j < ft_strlen(av[c.i]))
 		{
-			if (trigger == 0)
-				j++;
+			if (c.trigger == 0)
+				c.j++;
 			else
 			{
-				trigger = 0;
-				if (ft_atoi(av[i]) == -2147483648)
+				c.trigger = 0;
+				if (ft_atoi(av[c.i]) == -2147483648)
 					ft_error(stack);
-				stack->stack_a[i - 1] = ft_atoi(av[i]);
-				j++;
+				stack->stack_a[c.i - 1] = ft_atoi(av[c.i]);
+				c.j++;
 			}
 		}
-		trigger = 1;
-		i++;
+		c.trigger = 1;
+		c.i++;
 	}
 }
 

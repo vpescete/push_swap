@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:23:18 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 11:59:24 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:57:26 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int	ft_sorting(t_stack *stack)
 {
 	int	len;
 
+	if (stack->current_a == 3)
+	{
+		ft_sorting_a(stack);
+		ft_close(stack);
+	}
 	len = 0;
 	len += ft_first(stack);
 	return (len);

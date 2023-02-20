@@ -6,7 +6,7 @@
 /*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/19 13:30:54 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:55:26 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ enum e_MOVES {
 	reverse_b,
 	reverse_ab,
 };
+
+typedef struct s_curr {
+	int	cur_a;
+	int	cur_b;
+}				t_curr;
+
+typedef struct s_check {
+	int	ac;
+	int	trigger;
+	int	i;
+	int	j;
+}				t_check;
 
 typedef struct s_topush
 {
@@ -77,10 +89,10 @@ int			rrr(t_stack *stack);
 
 /* check and fill stack a */
 t_stack		*ft_init(char **av, int ac, t_stack *stack);
-t_stack		*ft_check_stack(char *input, t_stack *stack);
-void		ft_fill_stack(char *s, t_stack *stack);
-t_stack		*ft_check_av(char **av, int ac, t_stack *stack);
-void		ft_fill_stack_2(char **av, int ac, t_stack *stack);
+t_stack		*ft_check_stack(char *s, t_stack *stack, t_check c);
+void		ft_fill_stack(char *s, t_stack *stack, t_check c);
+t_stack		*ft_check_av(char **av, t_stack *stack, t_check c);
+void		ft_fill_stack_2(char **av, t_stack *stack, t_check c);
 void		ft_check_doubles(t_stack *stack);
 void		ft_check_init_sort(t_stack *stack);
 
@@ -106,6 +118,11 @@ void		ft_sorting_a(t_stack *stack);
 int			ft_find_next_top_a(t_stack *stack);
 void		ft_pushing_to_a(t_stack *stack);
 void		final_sorting(t_stack *stack);
+t_curr		ft_mid_stacks(t_stack *stack);
+void		ft_sta_maj_stb_1(t_stack *stack, int cur_a);
+void		ft_sta_maj_stb_2(t_stack *stack, int cur_a, int i_topa, int i);
+void		ft_stb_maj_sta_1(t_stack *stack, int cur_a);
+void		ft_stb_maj_sta_2(t_stack *stack, int cur_a, int i_topa, int i);
 
 /* checking stacks */
 void		ft_check_maxmin(t_stack *stack);
