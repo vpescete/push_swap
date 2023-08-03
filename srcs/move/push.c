@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:08:54 by vpescete          #+#    #+#             */
-/*   Updated: 2023/02/20 19:42:58 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/08/03 19:20:34 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../push_swap.h"
+#include "../push_swap.h"
 
 int	pa(t_stack *stack, int p)
 {
