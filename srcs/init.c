@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:40:25 by vpescetelli       #+#    #+#             */
-/*   Updated: 2023/08/03 19:18:57 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 23:23:46 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,6 @@ void	init_two(char **av, int ac, t_stack *stack)
 
 void	get_input(char **av, int ac, t_stack *stack)
 {
-	int	i;
-
-	i = -1;
 	if (ac == 2)
 		init_one(av[1], stack);
 	else

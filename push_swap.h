@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 20:40:21 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/04 00:00:07 by vpescete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_push {
 	int	idx_a;
 	int	idx_b;
 	int	mv;
-}
+}	t_push;
 
 typedef struct s_temp {
 	int	idx_a;
@@ -43,7 +43,6 @@ typedef struct s_stack {
 	int		index_mina;
 	int		index_maxb;
 	int		index_minb;
-	int		mv;
 	t_temp	tmp;
 	t_push	push;
 }			t_stack;
@@ -84,5 +83,14 @@ int		count_len_stack(char **mtx);
 void	fill_stack(t_stack *stack, char **mtx);
 void	init_one(char *string, t_stack *stack);
 void	init_two(char **av, int ac, t_stack *stack);
+
+/*sort functions*/
+void	case_one(t_stack *stack);
+void	case_two(t_stack *stack);
+void	exec_case_one(t_stack *stack);
+void	exec_case_two(t_stack *stack);
+void	exec_case_three(t_stack *stack);
+void	exec_case_four(t_stack *stack);
+void	three_sort(t_stack *stack);
 
 #endif
