@@ -6,7 +6,7 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 19:22:42 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 20:40:21 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,30 @@
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 
+typedef struct s_push {
+	int	idx_a;
+	int	idx_b;
+	int	mv;
+}
+
+typedef struct s_temp {
+	int	idx_a;
+	int	idx_b;
+	int	tmp_mv;
+}	t_temp;
+
 typedef struct s_stack {
-	int	*stack_a;
-	int	*stack_b;
-	int	len_a;
-	int	len_b;
-	int	index_maxa;
-	int	index_mina;
-	int	index_maxb;
-	int	index_minb;
+	int		*stack_a;
+	int		*stack_b;
+	int		len_a;
+	int		len_b;
+	int		index_maxa;
+	int		index_mina;
+	int		index_maxb;
+	int		index_minb;
+	int		mv;
+	t_temp	tmp;
+	t_push	push;
 }			t_stack;
 
 /* swap function */
@@ -59,6 +74,9 @@ void	ft_error(void);
 void	free_mtx(char **mtx);
 int		check_char(char *s);
 void	check_double(t_stack *stack);
+void	ft_close(t_stack *stack);
+void	set_maxmin(t_stack *stack);
+void	check_sorted(t_stack *stack);
 
 /*init functions*/
 void	get_input(char **av, int ac, t_stack *stack);

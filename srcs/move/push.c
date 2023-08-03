@@ -6,7 +6,7 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:08:54 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 19:23:01 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 19:36:14 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	pa(t_stack *stack, int p)
 	stack->len_b--;
 	if (p == 1)
 		ft_printf("pa\n");
+	set_maxmin(stack);
 }
 
 void	pb(t_stack *stack, int p)
@@ -54,7 +55,7 @@ void	pb(t_stack *stack, int p)
 		i++;
 	}
 	stack->len_a--;
-	ft_check_maxmin(stack);
 	if (p == 1)
 		ft_printf("pb\n");
+	set_maxmin(stack);
 }

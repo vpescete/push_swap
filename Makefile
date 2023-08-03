@@ -2,7 +2,9 @@ NAME = push_swap
 
 SRC = main.c
 
-SRCS = srcs/init.c srcs/init_utils.c srcs/utils_0.c 
+MOVE = srcs/move/push.c srcs/move/rotate.c srcs/move/reverse.c srcs/move/swap.c
+
+SRCS = srcs/init.c srcs/init_utils.c srcs/utils_0.c srcs/utils_1.c $(MOVE)
 
 # ANSII COLOR
 

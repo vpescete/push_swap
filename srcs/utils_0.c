@@ -6,7 +6,7 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 18:30:10 by vpescetelli       #+#    #+#             */
-/*   Updated: 2023/08/03 19:17:38 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 19:28:01 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+void	ft_close(t_stack *stack)
+{
+	free(stack->stack_a);
+	free(stack->stack_b);
+	exit(0);
 }
