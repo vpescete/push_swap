@@ -1,57 +1,66 @@
 NAME = push_swap
-NAME_B = checker
 
-SRC_1 = push_swap.c
+SRC = main.c
 
-SRC_2 = include/push_swap/move/push.c include/push_swap/move/reverse.c \
-		include/push_swap/move/rotate.c include/push_swap/move/swap.c \
-		include/push_swap/input_check/ft_check_input.c \
-		include/push_swap/input_check/ft_check_sort.c\
-		include/push_swap/sorting/ft_sorting.c \
-		include/push_swap/sorting/ft_count_move_to_b.c\
-		include/push_swap/sorting/ft_check_maxmin.c\
-		include/push_swap/sorting/ft_pushing_to_b.c\
-		include/push_swap/sorting/ft_sorting_a.c \
-		include/push_swap/sorting/ft_check_to_b.c \
-		include/push_swap/sorting/ft_check_pusha.c\
-		include/push_swap/close_error/ft_close.c\
-		include/push_swap/close_error/ft_error.c\
+SRCS = srcs/init.c srcs/init_utils.c srcs/utils_0.c 
 
-BONUS = include/bonus/checker.c \
-		libs/get_next_line/get_next_line.c \
-		libs/get_next_line/get_next_line_utils.c \
+# ANSII COLOR
 
-OBJ_1 = $(SRC_1.c=.o)
-OBJ_1 = $(SRC_2.c=.o)
+RED		= \033[0;31m
+BLACK	= \033[1;30m
+WHITE	= \033[1;37m
+BLUE	= \033[1;34m
+YELLOW2  = \033[93;226m
+GREEN2   = \033[92;118m
+GREEN   = \e[92;5;118m
+YELLOW  = \e[93;5;226m
+GRAY    = \e[33;2;37m
+RESET   = \e[0m
+CURSIVE = \e[33;3m
 
-BOBJ = $(BONUS.c=.o)
+OBJS = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
-CC = gcc
-FLAG = -Wall -Werror -Wextra
+RM = rm -f
 
 FTPRINTF = libs/ft_printf/
 LIBFT := libs/libft/
 LIBRARY := libs/libft/libft.a libs/ft_printf/libftprintf.a
 
-all :
-		make -C $(FTPRINTF)
-		make -C $(LIBFT)
-	$(CC) $(FLAGS) $(SRC_1) $(SRC_2) $(LIBRARY) -o $(NAME)
+CC = gcc -Wall -Wextra -Werror -g
 
-bonus : all
-	$(CC) $(FLAGS) $(BONUS) $(SRC_2) $(LIBRARY) -o $(NAME_B)
+.c.o:
+	@${CC} -c $< -o ${<:.c=.o} > /dev/null
 
-clean: 
-		make clean -C $(LIBFT)
-		make clean -C $(FTPRINTF)
-	rm -f $(OBJ_1)
-	rm -f $(OBJ_2)
-	rm -f $(BOBJ)
+$(NAME): ${OBJS} $(OBJ)
+	@printf "$(CURSIVE)$(YELLOW) 	- Compiling libft ... $(RESET)\n"
+	@make -s -C $(LIBFT)
+	@printf "\e[0m\e[92m - libft compiled.$(RESET)\n"
+	@printf "$(CURSIVE)$(YELLOW) 	- Compiling libft ... $(RESET)\n"
+	@make -s -C $(FTPRINTF)
+	@printf "\e[0m\e[92m - libft compiled.$(RESET)\n"
+	@printf "$(CURSIVE)$(YELLOW) 	- Compiling push_swap ... $(RESET)\n"
+	@$(CC) $(OBJS) $(OBJ) $(LIBRARY) -o $(NAME)
+	@printf "\e[0m\e[92m - push_swap compiled.$(RESET)\n"
+
+all: $(NAME)
+
+clean:
+	@make -s clean -C $(LIBFT)
+	@printf "\e[0m\e[92m$(RED) - OBJS libft removed.$(RESET)\n"
+	@make -s clean -C $(FTPRINTF)
+	@printf "\e[0m\e[92m$(RED) - OBJS ft_printf removed.$(RESET)\n"
+	@${RM} $(OBJS)
+	@${RM} $(OBJ)
+	@printf "\e[0m\e[92m$(RED) - OBJS push_swap removed.$(RESET)\n"
 
 fclean: clean
-		make fclean -C $(LIBFT)
-		make fclean -C $(FTPRINTF)
-	rm -f $(NAME)
-	rm -f $(NAME_B)
+	@make -s fclean -C $(LIBFT)
+	@printf "\e[0m\e[92m$(RED) - library libft removed.$(RESET)\n"
+	@make -s fclean -C $(FTPRINTF)
+	@printf "\e[0m\e[92m$(RED) - library ft_printf removed.$(RESET)\n"
+	@${RM} $(NAME) ${OBJ}
+	@${RM} $(NAME) ${OBJS}
+	@printf "\e[0m\e[92m$(RED) - push_swap removed.$(RESET)\n"
 
-re: fclean all clean
+re: fclean all

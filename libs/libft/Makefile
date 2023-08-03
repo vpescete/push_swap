@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+         #
+#    By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 16:31:13 by vpescete          #+#    #+#              #
-#    Updated: 2023/01/29 10:33:35 by vpescete         ###   ########.fr        #
+#    Updated: 2023/08/03 18:44:22 by vpescetelli      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ B_OBJ = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -r $(NAME) $(OBJ)
+	@ar -r $(NAME) $(OBJ)
 
 bonus: $(OBJ) $(B_OBJ)
 	@ar -r $(NAME) $?

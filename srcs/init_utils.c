@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 16:00:42 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 18:25:34 by vpescetelli      ###   ########.fr       */
+/*   Created: 2023/08/03 18:31:45 by vpescetelli       #+#    #+#             */
+/*   Updated: 2023/08/03 19:14:59 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-long long	ft_atoi(const char *str)
+int	count_len_stack(char **mtx)
 {
-	long long	n;
-	int			sign;
-	const char	*s;
+	int	i;
 
-	n = 0;
-	sign = 1;
-	s = str;
-	while (*s == ' ' || *s == '\t' || *s == '\n' || *s == '\r'
-		|| *s == '\f' || *s == '\v')
-		s++;
-	if (*s == '-')
+	i = -1;
+	while(mtx[++i])
+		;
+	return (i);
+}
+
+void	fill_stack(t_stack *stack, char **mtx)
+{
+	int	i;
+
+	i = -1;
+	while(mtx[++i])
 	{
-		sign = -1;
-		s++;
+		if (!check_char(mtx[i]) || (ft_atoi(mtx[i]) < MIN_INT
+			|| ft_atoi(mtx[i]) > MAX_INT))
+		{
+			free(stack->stack_a);
+			free(stack->stack_b);
+			ft_error();
+		}
+		stack->stack_a[i] = ft_atoi(mtx[i]);
 	}
-	else if (*s == '+')
-		s++;
-	while (*s >= '0' && *s <= '9')
-	{
-		n = n * 10;
-		n += *s - '0';
-		s++;
-	}
-	return (n * sign);
 }
