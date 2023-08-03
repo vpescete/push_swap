@@ -6,13 +6,13 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:21 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 19:21:06 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 19:24:22 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	sa(t_stack *stack, int p)
+void	sa(t_stack *stack, int p)
 {
 	int	tmp;
 
@@ -22,10 +22,9 @@ int	sa(t_stack *stack, int p)
 	ft_check_maxmin(stack);
 	if (p == 1)
 		ft_printf("sa\n");
-	return (swap_a);
 }
 
-int	sb(t_stack *stack, int p)
+void	sb(t_stack *stack, int p)
 {
 	int	tmp;
 
@@ -35,10 +34,9 @@ int	sb(t_stack *stack, int p)
 	ft_check_maxmin(stack);
 	if (p == 1)
 		ft_printf("sb\n");
-	return (swap_b);
 }
 
-int	ss(t_stack *stack, int p)
+void	ss(t_stack *stack, int p)
 {
 	int	tmp;
 
@@ -51,5 +49,4 @@ int	ss(t_stack *stack, int p)
 	ft_check_maxmin(stack);
 	if (p == 1)
 		ft_printf("ss\n");
-	return (swap_ab);
 }

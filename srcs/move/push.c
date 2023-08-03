@@ -6,57 +6,55 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:08:54 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 19:20:34 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 19:23:01 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	pa(t_stack *stack, int p)
+void	pa(t_stack *stack, int p)
 {
 	int	i;
 
-	i = stack->current_a;
+	i = stack->len_a;
 	while (i > 0)
 	{
 		stack->stack_a[i] = stack->stack_a[i - 1];
 		i--;
 	}
-	stack->current_a++;
+	stack->len_a++;
 	stack->stack_a[0] = stack->stack_b[0];
 	i = 1;
-	while (i < stack->current_b)
+	while (i < stack->len_b)
 	{
 		stack->stack_b[i - 1] = stack->stack_b[i];
 		i++;
 	}
-	stack->current_b--;
+	stack->len_b--;
 	if (p == 1)
 		ft_printf("pa\n");
-	return (push_a);
 }
 
-int	pb(t_stack *stack, int p)
+void	pb(t_stack *stack, int p)
 {
 	int	i;
 
-	i = stack->current_b;
+	i = stack->len_b;
 	while (i > 0)
 	{
 		stack->stack_b[i] = stack->stack_b[i - 1];
 		i--;
 	}
-	stack->current_b++;
+	stack->len_b++;
 	stack->stack_b[0] = stack->stack_a[0];
 	i = 1;
-	while (i < stack->current_a)
+	while (i < stack->len_a)
 	{
 		stack->stack_a[i - 1] = stack->stack_a[i];
 		i++;
 	}
-	stack->current_a--;
+	stack->len_a--;
 	ft_check_maxmin(stack);
 	if (p == 1)
 		ft_printf("pb\n");
-	return (push_b);
 }

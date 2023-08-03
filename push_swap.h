@@ -6,7 +6,7 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/03 19:18:17 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/03 19:22:42 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,23 @@ typedef struct s_stack {
 }			t_stack;
 
 /* swap function */
-int		sa(t_stack *stack, int p);
-int		sb(t_stack *stack, int p);
-int		ss(t_stack *stack, int p);
+void	sa(t_stack *stack, int p);
+void	sb(t_stack *stack, int p);
+void	ss(t_stack *stack, int p);
 
 /* push function */
-int		pa(t_stack *stack, int p);
-int		pb(t_stack *stack, int p);
+void	pa(t_stack *stack, int p);
+void	pb(t_stack *stack, int p);
 
 /* rotate funciton */
-int		ra(t_stack *stack, int p);
-int		rb(t_stack *stack, int p);
-int		rr(t_stack *stack, int p);
+void	ra(t_stack *stack, int p);
+void	rb(t_stack *stack, int p);
+void	rr(t_stack *stack, int p);
 
 /* reverse rotate funciton */
-int		rra(t_stack *stack, int p);
-int		rrb(t_stack *stack, int p);
-int		rrr(t_stack *stack, int p);
+void	rra(t_stack *stack, int p);
+void	rrb(t_stack *stack, int p);
+void	rrr(t_stack *stack, int p);
 
 /* error functions*/
 void	ft_error(void);
