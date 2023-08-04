@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpescete <vpescete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:14:44 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/04 00:00:07 by vpescete         ###   ########.fr       */
+/*   Updated: 2023/08/04 17:16:26 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	check_double(t_stack *stack);
 void	ft_close(t_stack *stack);
 void	set_maxmin(t_stack *stack);
 void	check_sorted(t_stack *stack);
+void	set_maxmin_b(t_stack *stack);
+void	set_maxmin_a(t_stack *stack);
 
 /*init functions*/
 void	get_input(char **av, int ac, t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: vpescetelli <vpescetelli@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:58:11 by vpescete          #+#    #+#             */
-/*   Updated: 2023/08/04 15:20:01 by vpescetelli      ###   ########.fr       */
+/*   Updated: 2023/08/04 17:23:15 by vpescetelli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,12 +149,12 @@ void	final_sorting(t_stack *stack)
 	set_maxmin(stack);
 	if (stack->index_mina >= cur_a)
 	{
-		while (++i < stack->len_a - stack->index_mina)
+		while (stack->index_mina != 0)
 			rra(stack, 1);
 	}
 	else
 	{
-		while (++i < stack->index_mina)
+		while (stack->index_mina != 0)
 			ra(stack, 1);
 	}
 }
